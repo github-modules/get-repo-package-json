@@ -1,0 +1,18 @@
+{
+  "name": "package.json",
+  "path": "package.json",
+  "sha": "9e963f8f6f67ae831a1303e2ec7417f7bb8a7575",
+  "size": 1143,
+  "url": "https://api.github.com/repos/segmentio/nightmare/contents/package.json?ref=master",
+  "html_url": "https://github.com/segmentio/nightmare/blob/master/package.json",
+  "git_url": "https://api.github.com/repos/segmentio/nightmare/git/blobs/9e963f8f6f67ae831a1303e2ec7417f7bb8a7575",
+  "download_url": "https://raw.githubusercontent.com/segmentio/nightmare/master/package.json",
+  "type": "file",
+  "content": "ewogICJuYW1lIjogIm5pZ2h0bWFyZSIsCiAgInZlcnNpb24iOiAiMi42LjAi\nLAogICJsaWNlbnNlIjogIk1JVCIsCiAgIm1haW4iOiAibGliL25pZ2h0bWFy\nZS5qcyIsCiAgInNjcmlwdHMiOiB7CiAgICAidGVzdCI6ICJtYWtlIHRlc3Qi\nCiAgfSwKICAicmVwb3NpdG9yeSI6IHsKICAgICJ0eXBlIjogImdpdCIsCiAg\nICAidXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9zZWdtZW50aW8vbmlnaHRt\nYXJlLmdpdCIKICB9LAogICJhdXRob3IiOiAiU2VnbWVudCIsCiAgImtleXdv\ncmRzIjogWwogICAgIm5pZ2h0bWFyZSIsCiAgICAiZWxlY3Ryb24iCiAgXSwK\nICAiZGVzY3JpcHRpb24iOiAiQSBoaWdoLWxldmVsIGJyb3dzZXIgYXV0b21h\ndGlvbiBsaWJyYXJ5LiIsCiAgImRlcGVuZGVuY2llcyI6IHsKICAgICJkZWJ1\nZyI6ICJeMi4yLjAiLAogICAgImRlZXAtZGVmYXVsdHMiOiAiXjEuMC4zIiwK\nICAgICJkZWZhdWx0cyI6ICJeMS4wLjIiLAogICAgImVsZWN0cm9uLXByZWJ1\naWx0IjogIl4xLjIuNSIsCiAgICAiZW5xdWV1ZSI6ICJeMS4wLjIiLAogICAg\nImZ1bmN0aW9uLXNvdXJjZSI6ICJeMC4xLjAiLAogICAgImpzZXNjIjogIl4w\nLjUuMCIsCiAgICAibWluc3RhY2hlIjogIl4xLjIuMCIsCiAgICAibWtkaXJw\nIjogIl4wLjUuMSIsCiAgICAib2JqZWN0LWFzc2lnbiI6ICJeNC4wLjEiLAog\nICAgIm9uY2UiOiAiXjEuMy4zIiwKICAgICJyaW1yYWYiOiAiXjIuNC4zIiwK\nICAgICJzbGljZWQiOiAiMS4wLjEiLAogICAgInNwbGl0MiI6ICJeMi4wLjEi\nCiAgfSwKICAiZGV2RGVwZW5kZW5jaWVzIjogewogICAgImJhc2ljLWF1dGgi\nOiAiXjEuMC4zIiwKICAgICJiYXNpYy1hdXRoLWNvbm5lY3QiOiAiXjEuMC4w\nIiwKICAgICJjaGFpIjogIl4zLjQuMSIsCiAgICAiY2hhaS1hcy1wcm9taXNl\nZCI6ICJeNS4zLjAiLAogICAgImV4cHJlc3MiOiAiXjQuMTMuMyIsCiAgICAi\nbW9jaGEiOiAiXjIuMy4wIiwKICAgICJtb2NoYS1nZW5lcmF0b3JzIjogIl4x\nLjIuMCIsCiAgICAibXVsdGVyIjogIjEuMS4wIiwKICAgICJwbmdqcyI6ICJe\nMi4yLjAiLAogICAgInNlcnZlLXN0YXRpYyI6ICJeMS4xMC4wIiwKICAgICJz\ncGxpdCI6ICJeMS4wLjAiCiAgfSwKICAiZW5naW5lcyI6IHsKICAgICJub2Rl\nIjoiPj00LjAuMCIKICB9Cn0K\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/segmentio/nightmare/contents/package.json?ref=master",
+    "git": "https://api.github.com/repos/segmentio/nightmare/git/blobs/9e963f8f6f67ae831a1303e2ec7417f7bb8a7575",
+    "html": "https://github.com/segmentio/nightmare/blob/master/package.json"
+  }
+}
