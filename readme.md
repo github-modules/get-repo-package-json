@@ -49,7 +49,7 @@ This package exports a single function:
 ### `getPackage(repository, [options], callback)`
 
 - `repository` (string) - Any string supported by
-[github-url-to-object](https://zeke.github.io/github-url-to-object/). Examples:
+[github-url-to-object](https://zeke.github.io/github-url-to-object/).
 - `options` (optional object)
   - `access_token` - GitHub API key. Can also be set as a `GITHUB_ACCESS_TOKEN` environment variable.
   - `ref` - The name of the commit/branch/tag. Defaults to nothing, so the GitHub API will return the repo's default branch.
