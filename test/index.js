@@ -1,28 +1,74 @@
-const test = require('tape')
+const expect = require('chai').expect
 const nock = require('nock')
-const getRepoPackageJSON = require('..')
-const nightmarePackage = require('./fixtures/nightmare.json')
+const getPackage = require('..')
+const fixtures = require('require-dir')('./fixtures')
+const api = function (path) {
+  return nock('https://api.github.com').get(path).once()
+}
 
-test('getRepoPackageJSON', function (t) {
-  let mock = nock('https://api.github.com')
-    .get('/repos/segmentio/nightmare/contents/package.json')
-    .reply(200, nightmarePackage)
-    .get('/repos/segmentio/nightmare/contents/package.json?access_token=123')
-    .reply(200, nightmarePackage)
+nock.disableNetConnect()
 
-    // test `ref`
-    // test env token
+describe('getPackage', function () {
+  it('gets a package.json', function (done) {
+    let mock = api('/repos/segmentio/nightmare/contents/package.json')
+      .reply(200, fixtures.nightmare)
 
-  t.plan(1)
-
-  getRepoPackageJSON('segmentio/nightmare', function (err, pkg) {
-    if (err) throw err
-
-    getRepoPackageJSON('segmentio/nightmare', {access_token: '123'}, function (err, pkg) {
+    getPackage('segmentio/nightmare', function (err, pkg) {
       if (err) throw err
-
-      t.ok(mock.isDone(), 'satisfies mock')
+      expect(pkg).to.be.an('object')
+      expect(pkg.name).to.be.a('string')
+      expect(pkg.dependencies).to.be.an('object')
+      expect(mock.isDone()).to.be.true
+      done()
     })
+  })
 
+  it('detects GitHub `access_token` option and adds it as a query param', function (done) {
+    let mock = api('/repos/segmentio/nightmare/contents/package.json')
+      .query({access_token: 'abc'})
+      .reply(200, fixtures.nightmare)
+
+    getPackage('segmentio/nightmare', {access_token: 'abc'}, function (err, pkg) {
+      if (err) throw err
+      expect(mock.isDone()).to.be.true
+      done()
+    })
+  })
+
+  it('detects process.env.GITHUB_ACCESS_TOKEN and adds it as a query param', function (done) {
+    process.env.GITHUB_ACCESS_TOKEN = 'xyz'
+    let mock = api('/repos/segmentio/nightmare/contents/package.json')
+      .query({access_token: 'xyz'})
+      .reply(200, fixtures.nightmare)
+
+    getPackage('segmentio/nightmare', function (err, pkg) {
+      if (err) throw err
+      expect(mock.isDone()).to.be.true
+      delete process.env.GITHUB_ACCESS_TOKEN
+      done()
+    })
+  })
+
+  it('allows a custom commit/branch/tag using the `ref` option', function (done) {
+    let mock = api('/repos/segmentio/nightmare/contents/package.json')
+      .query({ref: 'experimental-branch'})
+      .reply(200, fixtures.nightmare)
+
+    getPackage('segmentio/nightmare', {ref: 'experimental-branch'}, function (err, pkg) {
+      if (err) throw err
+      expect(mock.isDone()).to.be.true
+      done()
+    })
+  })
+
+  it('infers commit ref from a long URL', function (done) {
+    let mock = api('/repos/monkey/business/contents/package.json')
+      .query({ref: 'experiment'})
+      .reply(200, fixtures.nightmare)
+    getPackage('https://github.com/monkey/business/tree/experiment', function (err, pkg) {
+      if (err) throw err
+      expect(mock.isDone()).to.be.true
+      done()
+    })
   })
 })

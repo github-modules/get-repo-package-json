@@ -38,10 +38,9 @@ function getRepoPackageJSON (repository, opts, callback) {
   if (opts.access_token) urlParts.query.access_token = opts.access_token
 
   // Token can be set in environment
-  if (process.env.GITHUB_PERSONAL_ACCESS_TOKEN) {
-    urlParts.query.access_token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+  if (process.env.GITHUB_ACCESS_TOKEN) {
+    urlParts.query.access_token = process.env.GITHUB_ACCESS_TOKEN
   }
-
 
   let url = URL.format(urlParts)
 
@@ -51,7 +50,7 @@ function getRepoPackageJSON (repository, opts, callback) {
       return callback(null, pkg)
     })
     .catch(err => {
-      console.log('fooey')
+      console.log(`error getting url: ${url}`, err)
       return callback(err)
     })
 }
