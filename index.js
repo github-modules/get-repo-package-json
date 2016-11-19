@@ -50,7 +50,6 @@ function getRepoPackageJSON (repository, opts, callback) {
       return callback(null, pkg)
     })
     .catch(err => {
-      console.log(`error getting url: ${url}`, err)
       return callback(err)
     })
 }
