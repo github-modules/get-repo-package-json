@@ -71,4 +71,15 @@ describe('getPackage', function () {
       done()
     })
   })
+
+  it('handles 404s', function (done) {
+    let mock = api('/repos/nonexistent-user/nonexistent-repo/contents/package.json')
+      .reply(404)
+
+    getPackage('nonexistent-user/nonexistent-repo', function (err, pkg) {
+      expect(err).to.exist
+      expect(mock.isDone()).to.be.true
+      done()
+    })
+  })
 })
