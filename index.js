@@ -46,7 +46,7 @@ function getRepoPackageJSON (repository, opts, callback) {
 
   return got(url, {json: true})
     .then(response => {
-      let pkg = JSON.parse(Buffer(response.body.content, response.body.encoding).toString())
+      let pkg = JSON.parse(new Buffer(response.body.content, response.body.encoding).toString())
       return callback(null, pkg)
     })
     .catch(err => {
