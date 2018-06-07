@@ -4,7 +4,7 @@
   "description": "Fetch a GitHub repository's package.json file using the GitHub API",
   "main": "index.js",
   "scripts": {
-    "test": "mocha && standard"
+    "test": "mocha && standard --fix"
   },
   "repository": "https://github.com/zeke/get-repo-package-json",
   "keywords": [
@@ -19,10 +19,10 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.1",
-    "nock": "^8.0.0",
+    "mocha": "^5.2.0",
+    "nock": "^9.3.1",
     "require-dir": "^0.3.0",
-    "standard": "^7.1.2"
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "github-url-to-object": "^2.2.3",

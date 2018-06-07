@@ -4,17 +4,11 @@ const URL = require('url')
 const got = require('got')
 const gh = require('github-url-to-object')
 
-function getRepoPackageJSON (repository, opts, callback) {
-  // opts is optional
-  if (!callback) {
-    callback = opts
-    opts = {}
-  }
-
+function getRepoPackageJSON (repository, opts = {}) {
   // extract username and repo name from parsed URL
   // https://zeke.github.io/github-url-to-object/
   let repoParts = gh(repository)
-  if (!repoParts) return callback(Error('Invalid repo name'))
+  if (!repoParts) throw new Error('Invalid repo name')
 
   let {user, repo, branch} = repoParts
 
@@ -42,15 +36,17 @@ function getRepoPackageJSON (repository, opts, callback) {
     urlParts.query.access_token = process.env.GITHUB_ACCESS_TOKEN
   }
 
+  // Alternative token name
+  if (process.env.GH_TOKEN) {
+    urlParts.query.access_token = process.env.GH_TOKEN
+  }
+
   let url = URL.format(urlParts)
 
   return got(url, {json: true})
     .then(response => {
-      let pkg = JSON.parse(new Buffer(response.body.content, response.body.encoding).toString())
-      return callback(null, pkg)
-    })
-    .catch(err => {
-      return callback(err)
+      let pkg = JSON.parse(Buffer.from(response.body.content, response.body.encoding).toString())
+      return pkg
     })
 }
 
