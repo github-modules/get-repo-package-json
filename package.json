@@ -1,6 +1,6 @@
 {
   "name": "get-repo-package-json",
-  "version": "2.0.0",
+  "version": "1.0.2",
   "description": "Fetch a GitHub repository's package.json file using the GitHub API",
   "main": "index.js",
   "scripts": {
